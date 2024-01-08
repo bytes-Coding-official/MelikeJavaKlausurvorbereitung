@@ -1,3 +1,5 @@
+package miniprojekt4;
+
 /**
  * Implements a multimap using a hashmap that contains
  * array lists to store its elements.

@@ -1,3 +1,5 @@
+package miniprojekt4;
+
 /**
  * An exception that is raised when a key is not found.
  *

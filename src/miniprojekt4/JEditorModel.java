@@ -1,3 +1,5 @@
+package miniprojekt4;
+
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 import java.util.Collections;

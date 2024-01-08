@@ -1,3 +1,5 @@
+package miniprojekt4;
+
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import java.awt.*;
