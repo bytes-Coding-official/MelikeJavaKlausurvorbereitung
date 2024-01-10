@@ -85,4 +85,22 @@ public class MultiHashMap<K, V> implements MultiMap<K, V> {
             map.get(key).add(value);
         }
     }
+
+
+   /* @Override
+    public boolean addValue(K key, V value) throws NullPointerException {
+        if (key == null) {
+            throw new NullPointerException("DER SCHLÜSSEL WAR NICHT EXISTENT!");
+        }
+
+        if (!containsKey(key)) {
+            ArrayList<V> liste = new ArrayList<>();
+            liste.add(value);
+            map.put(key, liste);
+            return true;
+        } else {
+            map.get(key).add(value);
+            return true;
+        }
+    }*/
 }
