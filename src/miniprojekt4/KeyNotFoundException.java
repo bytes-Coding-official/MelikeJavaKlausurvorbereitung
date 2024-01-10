@@ -17,6 +17,9 @@ public class KeyNotFoundException extends Exception {
      *
      * @param message The message describing the error.
      */
-    // TODO: constructor
 
+
+    public KeyNotFoundException(String message) {
+        super(message);
+    }
 }
