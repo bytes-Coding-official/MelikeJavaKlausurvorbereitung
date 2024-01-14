@@ -1,3 +1,5 @@
+package miniprojekt2;
+
 /**
  * Implements a vistor that prints a compact representation
  * of the marked state of a board onto the console.

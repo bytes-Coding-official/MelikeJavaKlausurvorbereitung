@@ -1,3 +1,5 @@
+package miniprojekt2;
+
 /**
  * Implements a visitor that prints the field colors.
  *

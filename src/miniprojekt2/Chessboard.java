@@ -1,3 +1,5 @@
+package miniprojekt2;
+
 /**
  * Implements a rectangular board with
  * black and white fields.

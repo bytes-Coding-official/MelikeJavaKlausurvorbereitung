@@ -1,9 +1,11 @@
+package miniprojekt2;
+
 /**
  * Implements a black field.
  *
  * @author Marcus
  */
-public class BlackField { // TODO: change inheritance hierarchy
+public class BlackField extends Field { // TODO: change inheritance hierarchy
 
     /**
      * Creates a new black field for
@@ -13,6 +15,15 @@ public class BlackField { // TODO: change inheritance hierarchy
      * @param y The y coordinate of the position.
      */
     // TODO: constructor
+    public BlackField(int x, int y) {
+        super(x, y);
+    }
+
+    @Override
+    public String getColor() {
+        return null;
+    }
+
 
     /**
      * Returns "b".

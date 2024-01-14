@@ -1,3 +1,5 @@
+package miniprojekt2;
+
 /**
  * An abstract base class for fields.
  *
@@ -8,7 +10,13 @@ public abstract class Field {
     /**
      * The x coordinate of the field.
      */
-    // TODO: x field
+    private final int x;
+    private final int y;
+
+    public Field(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
 
     /**
      * The y coordinate of the field.

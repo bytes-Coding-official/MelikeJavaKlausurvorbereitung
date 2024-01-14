@@ -1,3 +1,5 @@
+package miniprojekt2;
+
 /**
  * Implements a visitor that creates a string representation
  * from the fields of a board and makes it available via a

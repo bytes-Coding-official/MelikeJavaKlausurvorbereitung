@@ -1,9 +1,11 @@
+package miniprojekt2;
+
 /**
  * Implements a white field.
  *
  * @author Marcus
  */
-public class WhiteField { // TODO: change inheritance hierarchy
+public class WhiteField extends Field { // TODO: change inheritance hierarchy
 
     /**
      * Creates a new white field at the specified position.
@@ -11,7 +13,17 @@ public class WhiteField { // TODO: change inheritance hierarchy
      * @param x The x coordinate of the position.
      * @param y The y coordinate of the position.
      */
-    // TODO: constructor
+
+
+    public WhiteField(int x, int y) {
+        super(x, y);
+
+    }
+
+    @Override
+    public String getColor() {
+        return null;
+    }
 
     /**
      * Returns the string "w".

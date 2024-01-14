@@ -1,3 +1,5 @@
+package miniprojekt2;
+
 /**
  * Implements the visitor pattern for fields of a
  * chessboard described by Gamma, et al
