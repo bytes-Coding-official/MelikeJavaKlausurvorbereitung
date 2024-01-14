@@ -9,22 +9,22 @@ import java.util.Set;
  * Implements a multimap using a hashmap that contains
  * array lists to store its elements.
  *
- * @param <K> The key.
- * @param <V> The value.
+ * @param <KEY> The key.
+ * @param <VALUE> The value.
  * @author Marcus
  */
-public class MultiHashMap<K, V> implements MultiMap<K, V> {
+public class MultiHashMap<KEY, VALUE> implements MultiMap<KEY, VALUE> {
 
 
-    private final HashMap<K, ArrayList<V>> map = new HashMap<>();
+    private final HashMap<KEY, ArrayList<VALUE>> map = new HashMap<>();
 
     @Override
-    public Set<K> getKeys() {
+    public Set<KEY> getKeys() {
         return map.keySet();
     }
 
     @Override
-    public boolean containsKey(K key) throws NullPointerException {
+    public boolean containsKey(KEY key) throws NullPointerException {
         if (key == null) {
             throw new NullPointerException("DER SCHLÜSSEL WAR NICHT EXISTENT!");
         }
@@ -32,53 +32,56 @@ public class MultiHashMap<K, V> implements MultiMap<K, V> {
     }
 
     @Override
-    public List<V> removeKey(K key) throws KeyNotFoundException, NullPointerException {
+    public List<VALUE> removeKey(KEY key) throws KeyNotFoundException, NullPointerException {
         if (key == null) {
             throw new NullPointerException("DER SCHLÜSSEL WAR NICHT EXISTENT!");
         }
         if (!containsKey(key)) {
             throw new KeyNotFoundException("DER SCHLÜSSEL WAR NICHT GEFUNDEN!");
         }
-        ArrayList<V> liste = map.get(key); // var = ArrayList<V>
+        ArrayList<VALUE> liste = map.get(key); // var = ArrayList<V>
         map.remove(key);
         return liste;
     }
 
     @Override
-    public List<V> getValues(K key) throws KeyNotFoundException, NullPointerException {
+    public List<VALUE> getValues(KEY key) throws KeyNotFoundException, NullPointerException {
         if (key == null) {
             throw new NullPointerException("DER SCHLÜSSEL WAR NICHT EXISTENT!");
         }
         if (!containsKey(key)) {
             throw new KeyNotFoundException("DER SCHLÜSSEL WAR NICHT GEFUNDEN!");
         }
-        ArrayList<V> liste = map.get(key); // var = ArrayList<V>
+        ArrayList<VALUE> liste = map.get(key); // var = ArrayList<V>
 
         return liste;
     }
 
     @Override
-    public boolean removeValue(K key, V value) throws KeyNotFoundException, NullPointerException {
+    public boolean removeValue(KEY key, VALUE value) throws KeyNotFoundException, NullPointerException {
         if (key == null) {
             throw new NullPointerException("DER SCHLÜSSEL WAR NICHT EXISTENT!");
         }
         if (!containsKey(key)) {
             throw new KeyNotFoundException("DER SCHLÜSSEL WAR NICHT GEFUNDEN!");
         }
-        boolean result = map.get(key).remove(value);
+
+
+        boolean result = false;
+        result = map.get(key).remove(value);
         if (map.get(key).isEmpty())
             map.remove(key);
         return result;
     }
 
     @Override
-    public void addValue(K key, V value) throws NullPointerException {
+    public void addValue(KEY key, VALUE value) throws NullPointerException {
         if (key == null) {
             throw new NullPointerException("DER SCHLÜSSEL WAR NICHT EXISTENT!");
         }
 
         if (!containsKey(key)) {
-            ArrayList<V> liste = new ArrayList<>();
+            ArrayList<VALUE> liste = new ArrayList<>();
             liste.add(value);
             map.put(key, liste);
         } else {
@@ -86,8 +89,23 @@ public class MultiHashMap<K, V> implements MultiMap<K, V> {
         }
     }
 
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        for (KEY key : map.keySet()) {
+            builder.append(key).append(" -> ");
+            for (VALUE value : map.get(key)) {
+                builder.append(value).append(", ");
+            }
+            //lösche die letzten beiden zeichen
+            builder.delete(builder.length() - 2, builder.length());
+            builder.append("\r\n");
 
-   /* @Override
+        }
+        return builder.toString();
+    }
+
+    /* @Override
     public boolean addValue(K key, V value) throws NullPointerException {
         if (key == null) {
             throw new NullPointerException("DER SCHLÜSSEL WAR NICHT EXISTENT!");
