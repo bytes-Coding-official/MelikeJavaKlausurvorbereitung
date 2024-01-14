@@ -45,25 +45,28 @@ public class StringMapIO implements MultiMapIO<String, String> {
         MultiMap<String, String> map = new MultiHashMap<>(); // MultiHashMap ist eine klasse die MultiMap implementiert und somit eine MultiMap ist und somit auch eine MultiMap zurückgeben kann
         //lese die erste Zeile ein 
         while (reader.ready()) { //solange der reader noch nicht fertig ist soll weiter gelesen werden 
-            String line = reader.readLine(); //lese die nächste Zeile ein 
-            if (line == null || line.isEmpty()) { //wenn die Zeile null ist oder leer ist dann breche ab da wir fertig sind mit lesen 
+            String line = reader.readLine(); //lese die nächste Zeile ein  
+            if (line == null || line.isEmpty()) { //wenn die Zeile null ist oder leer ist dann breche ab da wir fertig sind mit lesen  (optional) wäre aber gut zu haben
                 break; //breche ab da wir fertig sind mit lesen 
             }
             //splitte die Zeile an dem '='
             String[] parts = line.split("="); //splitte die Zeile an dem '=' in 2 teile 'key   und  value'
             //wenn die Zeile nicht 2 teilig ist
-            if (parts.length != 2) { //wenn die Zeile nicht 2 teilig ist also nicht 2 elemente hat dann ist die Zeile ungültig und wir werfen einen Fehler
-                throw new IOException("Invalid line: " + line); //werfe einen Fehler mit der Zeile die ungültig ist 
+            if (parts.length != 2) { //wenn die Zeile nicht 2 teilig ist also nicht 2 elemente hat dann ist die Zeile ungültig und wir werfen einen Fehler (optional) aber durch aufgabenstellung gegeben
+                throw new IOException("Invalid line: " + line); //werfe einen Fehler mit der Zeile die ungültig ist   (optional) aber durch aufgabenstellung gegeben
             }
             //trimme die beiden teile
-            String key = parts[0].trim(); //trimme den key also entferne alle leerzeichen am anfang und am ende
-            String value = parts[1].trim(); //trimme den value also entferne alle leerzeichen am anfang und am ende
+            String key = parts[0].trim(); //trimme den key also entferne alle leerzeichen am anfang und am ende (optional)
+            String value = parts[1].trim(); //trimme den value also entferne alle leerzeichen am anfang und am ende (optional)
             //splitte den value an dem ','
             String[] values = value.split(","); //splitte den value an dem ',' in mehrere teile 'value1   und  value2'
             //füge den key und die values der map hinzu
             for (String element : values) { //gehe alle values durch
                 map.addValue(key, element.trim()); //füge den key und den value der map hinzu und trimme den value also entferne alle leerzeichen am anfang und am ende
+                //das Trim ist hier optional
             }
+
+
         }
         return map; //gebe die map zurück  
     } //wir haben nun eine MultiMap die wir zurückgeben können und die wir auch in der JEditorModel Klasse verwenden können 
